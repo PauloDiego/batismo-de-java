@@ -39,7 +39,7 @@ public class Main {
                 case 2:
                     int opcaoNinja = 0;
 
-                    while (opcaoNinja != 3) {
+                    while (opcaoNinja != 4) {
                         System.out.println(" ---------- CADASTRO ---------- ");
                         System.out.println("1 - Cadastrar NINJA");
                         System.out.println("2 - Cadastrar UCHIHA");
@@ -97,17 +97,22 @@ public class Main {
                                 }
                                 break;
                             case 3:
-                                String nomePesquisado;
-                                System.out.println(" ---------- ATUALIZAR HABILIDADE ESPECIAL ---------- ");
-                                System.out.print("PESQUISA >>> NOME: ");
-                                nomePesquisado = scan.nextLine();
-                                for (int i = 0; i < qtdUchihas; i++) {
-                                    if (uchiha[i].nome.equals(nomePesquisado)){
-                                        System.out.print("Informe a nova habilidade de " +uchiha[i].nome+ ": ");
-                                        uchiha[i].habilidadeEspecial = scan.nextLine();
-                                        System.out.println("Habilidade especial atualizada com sucesso!");
-                                    } else {
-                                        System.out.println("Uchiha não encontrado.");
+                                if(qtdUchihas == 0){
+                                    System.out.println("Não há UCHIHAS a serem atualizados.");
+                                    System.out.println("Faça um cadastro e tente novamente.");
+                                } else {
+                                    String nomePesquisado;
+                                    System.out.println(" ---------- ATUALIZAR HABILIDADE ESPECIAL ---------- ");
+                                    System.out.print("PESQUISA >>> NOME: ");
+                                    nomePesquisado = scan.nextLine();
+                                    for (int i = 0; i < qtdUchihas; i++) {
+                                        if (uchiha[i].nome.equals(nomePesquisado)){
+                                            System.out.print("Informe a nova habilidade de " +uchiha[i].nome+ ": ");
+                                            uchiha[i].habilidadeEspecial = scan.nextLine();
+                                            System.out.println("Habilidade especial atualizada com sucesso!");
+                                        } else {
+                                            System.out.println("Uchiha não encontrado.");
+                                        }
                                     }
                                 }
                                 break;
@@ -121,7 +126,11 @@ public class Main {
                     }
                     break;
                 case 3:
-
+                    System.out.println("Encerrando programa...");
+                    break;
+                default:
+                    System.out.println("Opço invalida!");
+                    break;
             }
         }
     }
